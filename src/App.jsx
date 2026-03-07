@@ -1,44 +1,17 @@
 import React from 'react'
 import Theme from './Components/Theme'
 import Button from './Components/Button'
+import data from './data/data.json'
+import logo from '/assets/images/icons/logo.svg'
 import Card from './Components/Card'
 
 export default function App() {
-
-    const cardDetails = [
-        {
-            image: 'react.svg', 
-            name: 'DevLens', 
-            content: 'Quickly inspect page layouts and visualize element boundaries', 
-        },
-        {
-            image: 'react.svg', 
-            name: 'DevLens', 
-            content: 'Quickly inspect page layouts and visualize element boundaries', 
-        },
-        {
-            image: 'react.svg', 
-            name: 'DevLens', 
-            content: 'Quickly inspect page layouts and visualize element boundaries', 
-        },
-        {
-            image: 'react.svg', 
-            name: 'DevLens', 
-            content: 'Quickly inspect page layouts and visualize element boundaries', 
-        },
-    ]
-
     return (
-        <div className='py-6 min-h-[100dvh] bg-[#060c22]  '>
-            <div className=' mx-auto max-w-3xl '>
+        <div className='px-1 sm:px-3 py-6 min-h-[100dvh] bg-[#060c22]  '>
+            <div className='mx-auto max-w-6xl '>
                 {/* Heading (Nav) */}
-                <div className=' px-3 sm:px-4 py-1 mx-2 bg-gray-800 rounded-xl flex justify-between items-center'>
-                    <div className=' flex items-center gap-3'>
-                        <img src="react.svg" alt="" />
-                        <div className=' text-xl font-bold text-gray-200 '>
-                            Extensions
-                        </div>
-                    </div>
+                <div className=' px-3 sm:px-4 py-1 bg-gray-700 rounded-xl flex justify-between items-center'>
+                    <img src={logo} alt="logo" />
 
                     <div className=''>
                         <Theme />
@@ -47,12 +20,12 @@ export default function App() {
 
                 {/* Extension Heading and Buttons */}
                 <div className='mt-10'>
-                    <div className=' flex flex-col gap-7'>
+                    <div className=' flex flex-col sm:flex-row sm:justify-between sm:items-center gap-7'>
                         <div className=' text-3xl text-center text-gray-200 font-semibold'>
                             Extension List
                         </div>
 
-                        <div className=' flex justify-evenly'>
+                        <div className=' flex justify-evenly sm:gap-5'>
                             <Button name={'All'} />
                             <Button name={'Acitve'} />
                             <Button name={'Inactive'} />
@@ -61,9 +34,9 @@ export default function App() {
                 </div>
 
                 {/* Extension list */}
-                <div>
-                    {cardDetails.map((item, index) => (
-                        <Card image={item.image} name={item.name} content={item.content} key={index} />
+                <div className='my-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 '>
+                    {data.map((item, index) => (
+                        <Card name={item.name} description={item.description}  logo={item.logo} isActive={item.isActive} key={index} />
                     ))}
                 </div>
             </div>
