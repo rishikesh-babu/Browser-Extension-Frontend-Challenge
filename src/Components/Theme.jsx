@@ -3,10 +3,22 @@ import sun from '/assets/images/icons/icon-sun.svg'
 import moon from '/assets/images/icons/icon-moon.svg'
 
 export default function Theme() {
+
+    function toggleTheme() { 
+        let theme = document.querySelector('html').getAttribute('data-theme')
+        if (theme === 'dark') { 
+            theme = 'light'
+        } else { 
+            theme = 'dark'
+        }
+        console.log('theme :>> ', theme);
+        document.querySelector('html').setAttribute('data-theme', theme) 
+    }
+    
     return (
         <label className="swap swap-rotate">
             {/* this hidden checkbox controls the state */}
-            <input type="checkbox" className="theme-controller" value="synthwave" />
+            <input onChange={() => toggleTheme()} type="checkbox" className="theme-controller" value="synthwave" />
 
             {/* sun icon */}
             <img src={sun} className='swap-off h-10 w-10 fill-current' alt="" />

@@ -20,10 +20,10 @@ export default function App() {
     }
 
     return (
-        <div className="px-1 sm:px-3 py-6 min-h-[100dvh] bg-[#060c22]  ">
+        <div className="px-1 sm:px-3 py-6 min-h-[100dvh] bg-[#ebf3fd] dark:bg-[#060c22] duration-300">
             <div className="mx-auto max-w-6xl ">
                 {/* Heading (Nav) */}
-                <div className=" px-3 sm:px-4 py-1 bg-gray-700 rounded-xl flex justify-between items-center">
+                <div className=" px-3 sm:px-4 py-1 bg-white dark:bg-gray-700 rounded-xl flex justify-between items-center duration-300">
                     <img src={logo} alt="logo" />
 
                     <div className="">
@@ -34,7 +34,7 @@ export default function App() {
                 {/* Extension Heading and Buttons */}
                 <div className="mt-10">
                     <div className=" flex flex-col sm:flex-row sm:justify-between sm:items-center gap-7">
-                        <div className=" text-3xl text-center text-gray-200 font-semibold">
+                        <div className=" text-3xl text-center  text-gray-800 dark:text-gray-200 font-bold">
                             Extension List 
                         </div>
 
