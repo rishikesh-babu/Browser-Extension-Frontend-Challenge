@@ -40,9 +40,9 @@ export default function App() {
                         </select>
 
                         <div className=" flex justify-evenly sm:gap-5">
-                            <Button name={'All'} value={'all'} setValue={setValue}  />
-                            <Button name={'Active'} value={'active'} setValue={setValue} />
-                            <Button name={'Inactive'} value={'inactive'} setValue={setValue} />
+                            <Button name={'All'} value={'all'} setValue={setValue} selected={value} />
+                            <Button name={'Active'} value={'active'} setValue={setValue} selected={value} />
+                            <Button name={'Inactive'} value={'inactive'} setValue={setValue} selected={value} />
                         </div>
                     </div>
                 </div>
