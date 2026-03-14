@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Card({ logo, name, description, isActive, toggleData, index, value }) {
+export default function Card({ logo, name, description, isActive, toggleData, id, value }) {
     return (
         <div className={`p-3 bg-gray-800 border border-gray-600 rounded-xl flex flex-col gap-8 ${value === 'active' && isActive === false ? 'hidden' : value === 'inactive' && isActive === true ? 'hidden' : 'block'} `}>
             <div className=" flex items-start gap-3 ">
@@ -19,7 +19,7 @@ export default function Card({ logo, name, description, isActive, toggleData, in
                 <input
                     type="checkbox"
                     checked={isActive ?? false}
-                    onChange={() => toggleData(index)}
+                    onChange={() => toggleData(id)}
                     className="toggle checked:bg-red-700 checked:border-red-700"
                 />
             </div>

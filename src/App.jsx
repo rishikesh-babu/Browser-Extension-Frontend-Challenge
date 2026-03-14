@@ -9,8 +9,8 @@ export default function App() {
     const [filteredData, setFilteredData] = useState(data)
     const [value, setValue] = useState('all')
 
-    function toggleData(index) {
-        const updatedData = filteredData.map((item, i) => (i === index ? { ...item, isActive: !item.isActive } : item))
+    function toggleData(id) {
+        const updatedData = filteredData.map(item => item.id === id ? { ...item, isActive: !item.isActive } : item)
         setFilteredData(updatedData)
     }
 
@@ -49,16 +49,16 @@ export default function App() {
 
                 {/* Extension list */}
                 <div className="my-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 ">
-                    {filteredData.map((item, index) => (
+                    {filteredData.map((item) => (
                         <Card
                             name={item.name}
                             description={item.description}
                             logo={item.logo}
                             isActive={item.isActive}
-                            index={index}
+                            id={item.id}
                             toggleData={toggleData}
                             value={value}
-                            key={index}
+                            key={item.id}
                         />
                     ))}
                 </div>
