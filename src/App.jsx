@@ -30,7 +30,7 @@ export default function App() {
                 <div className="mt-10">
                     <div className=" flex flex-col sm:flex-row sm:justify-between sm:items-center gap-7">
                         <div className=" text-3xl text-center text-gray-200 font-semibold">
-                            Extension List
+                            Extension List 
                         </div>
 
                         <select name="extension" id="exten" className='hidden'>
