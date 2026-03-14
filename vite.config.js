@@ -13,7 +13,7 @@ export default defineConfig({
             registerType: 'autoUpdate',
             manifest: {
                 name: 'Brower Extension Frontend Challenge ',
-                short_name: 'ExtensionChallenge',
+                short_name: 'Browser Extension',
                 description: 'Frontend challenge to build a web page',
                 theme_color: '#121212',
                 background_color: '#121212',

@@ -14,6 +14,11 @@ export default function App() {
         setFilteredData(updatedData)
     }
 
+    function removeExtension(id) { 
+        const updatedData = filteredData.filter(item => item.id !== id) 
+        setFilteredData(updatedData)
+    }
+
     return (
         <div className="px-1 sm:px-3 py-6 min-h-[100dvh] bg-[#060c22]  ">
             <div className="mx-auto max-w-6xl ">
@@ -58,6 +63,7 @@ export default function App() {
                             id={item.id}
                             toggleData={toggleData}
                             value={value}
+                            removeExtension={removeExtension}
                             key={item.id}
                         />
                     ))}
