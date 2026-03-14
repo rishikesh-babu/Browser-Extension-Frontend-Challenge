@@ -1,20 +1,30 @@
 import React, { useState } from 'react'
 import Theme from './Components/Theme'
-import Button from './Components/Button'
 import logo from '/assets/images/icons/logo.svg'
 import Card from './Components/Card'
 import { data } from './data/data'
+import Button from './Components/Button'
 
 export default function App() {
-    const [filteredData, setFilteredData] = useState(data)
+    const [originalData, setOriginalData] = useState(data)
+    const [filteredData, setFilteredData] = useState(originalData)
+    const [value, setValue] = useState('all')
 
     function toggleData(index) {
         const updatedData = filteredData.map((item, i) => (i === index ? { ...item, isActive: !item.isActive } : item))
         setFilteredData(updatedData)
     }
 
-    function handleData() { 
-        // const updateData = filteredData.map((item, index) => ())
+    function handleData(value) {
+        console.log('value :>> ', value);
+        let updatedData
+        if (value === 'All') {
+            updatedData = originalData
+        } else if (value === 'Active') {
+            updatedData = filteredData.map(item => item.isActive)
+        } else if (value === 'Inactive') {
+            updatedData = filteredData.map(item => !item.isActive)
+        }
     }
 
     return (
@@ -36,11 +46,45 @@ export default function App() {
                             Extension List
                         </div>
 
+                        <select name="extension" id="exten" className='hidden'>
+                            <option value="all" selected >All</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+
                         <div className=" flex justify-evenly sm:gap-5">
-                            <Button  name={"All"} />
-                            <Button  name={"Acitve"} />
-                            <Button  name={"Inactive"} />
+                            {/* <Button name={"All"} setValue={setValue} />
+                            <Button name={"Acitve"} setValue={setValue} />
+                            <Button name={"Inactive"} setValue={setValue} /> */}
+
+                            <Button name={'All'} value={'all'}  />
+                            <Button name={'Active'} value={'active'} />
+                            <Button name={'Inactive'} value={'inactive'}  />
                         </div>
+
+                        {/* <div className="flex gap-4">
+                            <label>
+                                <input type="radio" name="filter" value="all" className="hidden peer" />
+                                <span className="px-4 py-2 bg-gray-200 rounded peer-checked:bg-blue-500 peer-checked:text-white">
+                                    All
+                                </span>
+                            </label>
+
+                            <label>
+                                <input type="radio" name="filter" value="active" className="hidden peer" />
+                                <span className="px-4 py-2 bg-gray-200 rounded peer-checked:bg-blue-500 peer-checked:text-white">
+                                    Active
+                                </span>
+                            </label>
+
+                            <label>
+                                <input type="radio" name="filter" value="inactive" className="hidden peer" />
+                                <span className="px-4 py-2 bg-gray-200 rounded peer-checked:bg-blue-500 peer-checked:text-white">
+                                    Inactive
+                                </span>
+                            </label>
+
+                        </div> */}
                     </div>
                 </div>
 
