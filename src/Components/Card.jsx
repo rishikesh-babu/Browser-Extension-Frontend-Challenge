@@ -1,8 +1,8 @@
 import React from 'react'
 
-export default function Card({ logo, name, description, isActive, toggleData, index }) {
+export default function Card({ logo, name, description, isActive, toggleData, index, value }) {
     return (
-        <div className="p-3 bg-gray-800 border border-gray-600 rounded-xl flex flex-col gap-8 ">
+        <div className={`p-3 bg-gray-800 border border-gray-600 rounded-xl flex flex-col gap-8 ${value === 'active' && isActive === false ? 'hidden' : value === 'inactive' && isActive === true ? 'hidden' : 'block'} `}>
             <div className=" flex items-start gap-3 ">
                 <img src={logo} alt="" />
 

@@ -6,25 +6,12 @@ import { data } from './data/data'
 import Button from './Components/Button'
 
 export default function App() {
-    const [originalData, setOriginalData] = useState(data)
-    const [filteredData, setFilteredData] = useState(originalData)
+    const [filteredData, setFilteredData] = useState(data)
     const [value, setValue] = useState('all')
 
     function toggleData(index) {
         const updatedData = filteredData.map((item, i) => (i === index ? { ...item, isActive: !item.isActive } : item))
         setFilteredData(updatedData)
-    }
-
-    function handleData(value) {
-        console.log('value :>> ', value);
-        let updatedData
-        if (value === 'All') {
-            updatedData = originalData
-        } else if (value === 'Active') {
-            updatedData = filteredData.map(item => item.isActive)
-        } else if (value === 'Inactive') {
-            updatedData = filteredData.map(item => !item.isActive)
-        }
     }
 
     return (
@@ -53,38 +40,10 @@ export default function App() {
                         </select>
 
                         <div className=" flex justify-evenly sm:gap-5">
-                            {/* <Button name={"All"} setValue={setValue} />
-                            <Button name={"Acitve"} setValue={setValue} />
-                            <Button name={"Inactive"} setValue={setValue} /> */}
-
-                            <Button name={'All'} value={'all'}  />
-                            <Button name={'Active'} value={'active'} />
-                            <Button name={'Inactive'} value={'inactive'}  />
+                            <Button name={'All'} value={'all'} setValue={setValue}  />
+                            <Button name={'Active'} value={'active'} setValue={setValue} />
+                            <Button name={'Inactive'} value={'inactive'} setValue={setValue} />
                         </div>
-
-                        {/* <div className="flex gap-4">
-                            <label>
-                                <input type="radio" name="filter" value="all" className="hidden peer" />
-                                <span className="px-4 py-2 bg-gray-200 rounded peer-checked:bg-blue-500 peer-checked:text-white">
-                                    All
-                                </span>
-                            </label>
-
-                            <label>
-                                <input type="radio" name="filter" value="active" className="hidden peer" />
-                                <span className="px-4 py-2 bg-gray-200 rounded peer-checked:bg-blue-500 peer-checked:text-white">
-                                    Active
-                                </span>
-                            </label>
-
-                            <label>
-                                <input type="radio" name="filter" value="inactive" className="hidden peer" />
-                                <span className="px-4 py-2 bg-gray-200 rounded peer-checked:bg-blue-500 peer-checked:text-white">
-                                    Inactive
-                                </span>
-                            </label>
-
-                        </div> */}
                     </div>
                 </div>
 
@@ -98,6 +57,7 @@ export default function App() {
                             isActive={item.isActive}
                             index={index}
                             toggleData={toggleData}
+                            value={value}
                             key={index}
                         />
                     ))}
