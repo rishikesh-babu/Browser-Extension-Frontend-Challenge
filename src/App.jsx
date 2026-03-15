@@ -20,7 +20,7 @@ export default function App() {
     }
 
     return (
-        <div className="px-1 sm:px-3 py-6 min-h-[100dvh] bg-[#ebf3fd] dark:bg-[#060c22] duration-300">
+        <div className="px-1 sm:px-3 pt-6 pb-5 min-h-[100dvh] bg-[#ebf3fd] dark:bg-[#060c22] duration-300">
             <div className="mx-auto max-w-6xl ">
                 {/* Heading (Nav) */}
                 <div className=" px-3 sm:px-4 py-1 bg-white dark:bg-gray-700 rounded-xl flex justify-between items-center duration-300">
@@ -53,7 +53,7 @@ export default function App() {
                 </div>
 
                 {/* Extension list */}
-                <div className="my-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 ">
+                <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 ">
                     {filteredData.map((item) => (
                         <Card
                             name={item.name}
