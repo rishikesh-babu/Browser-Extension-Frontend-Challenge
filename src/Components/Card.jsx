@@ -1,4 +1,5 @@
 import React from 'react'
+import Toggle from './Toggle';
 
 export default function Card({ logo, name, description, isActive, toggleData, id, value, removeExtension }) {
     return (
@@ -16,12 +17,17 @@ export default function Card({ logo, name, description, isActive, toggleData, id
                 <button onClick={() => removeExtension(id)} className="py-2 px-5 font-bold text-gray-800 dark:text-gray-400 dark:hover:text-gray-300  dark:bg-black/10 hover:bg-gray-300 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-500 hover:border-gray-700 rounded-full cursor-pointer duration-300  ">
                     Remove
                 </button>
-                <input
+                {/* <input
                     type="checkbox"
                     checked={isActive ?? false}
                     onChange={() => toggleData(id)}
                     // className="toggle toggle-error "
                     className='  toggle border-gray-700 bg-gray-300 dark:bg-gray-700 checked:bg-red-700 checked:border-red-700 [--tglbg:gray] checked:[--tglbg:black] '
+                /> */}
+                <Toggle
+                    checked={isActive ?? false}
+                    toggleData={toggleData}
+                    id={id}
                 />
             </div>
         </div>
