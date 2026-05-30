@@ -10,10 +10,10 @@ export default function Toggle({ toggleData, id, checked}) {
             />
 
             {/* Track */}
-            <div className="h-6 w-11 rounded-full border border-gray-700 peer-checked:border-red-700 bg-gray-500 transition-colors duration-300 peer-checked:bg-black" />
+            <div className="h-6 w-11 rounded-full bg-gray-400 dark:bg-gray-500 border border-gray-300 dark:border-none transition-colors duration-300 peer-checked:bg-red-700" />
 
             {/* Knob */}
-            <div className="absolute left-1 size-[18px] rounded-full bg-gray-700 peer-checked:bg-red-700 transition-transform duration-300 peer-checked:translate-x-5" />
+            <div className="absolute left-1 size-[18px] rounded-full bg-white transition-transform duration-300 peer-checked:translate-x-5" />
         </label>
     );
 }
